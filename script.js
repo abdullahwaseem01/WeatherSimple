@@ -52,11 +52,16 @@ function getLocation() {
 
 function showPosition(position) {
     console.log(position.coords.latitude, position.coords.longitude);
+    fetch("https://locationiq.com/v1/reverse.php?key=pk.254adf22cf581c7ae167f824a2ca1618&lat=" 
+    +position.coords.latitude+"&lon=" +position.coords.longitude +"&format=json")
+    .then(response => response.json())
+    .then(data =>{ 
+        weather.fetchWeather(data.address.city);
+    })
 };
  
 
-const cname = "oshawa"
-weather.fetchWeather(cname)
+
 
 
 
