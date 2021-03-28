@@ -43,6 +43,8 @@ document
 });
 
 
+
+//Function to get users location
 window.onload = getLocation();
 
 function getLocation() {
@@ -50,8 +52,8 @@ function getLocation() {
     else { console.log("Geolocation is not supported by this browser.");}
 }
 
+//function to use push user push user location into Location iq api and return city name
 function showPosition(position) {
-    console.log(position.coords.latitude, position.coords.longitude);
     fetch("https://locationiq.com/v1/reverse.php?key=pk.254adf22cf581c7ae167f824a2ca1618&lat=" 
     +position.coords.latitude+"&lon=" +position.coords.longitude +"&format=json")
     .then(response => response.json())
