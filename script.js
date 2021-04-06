@@ -22,26 +22,28 @@ let weather = {
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%" ;
         document.querySelector(".wind").innerText = "Wind speed: " + Math.round(speed) + " km/h" ;
         document.querySelector(".weather").classList.remove("loading");
+          
         document.body.style.backgroundImage = "url('https://source.unsplash.com/2000x1000/?" + name +"')"
     },
+
     search: function () {
         this.fetchWeather(document.querySelector(".search-bar").value)
     }
 }; 
+
 document
-    .querySelector(".search button")
-    .addEventListener("click", function () {
+   .querySelector(".search button")
+   .addEventListener("click", function () {
         weather.search();
 });
 
 document
     .querySelector(".search-bar")
-    .addEventListener("keyup", function (event) { 
+    .addEventListener( "keyup", function (event) { 
     if (event.key == "Enter") {
             weather.search();
     }
 });
-
 
 
 //Function to get users location
@@ -60,10 +62,11 @@ function showPosition(position) {
     .then(data =>{ 
         weather.fetchWeather(data.address.city);
     })
+
+
 };
- 
 
 
 
-
-
+module.exports = search 
+module.exports = weather 
